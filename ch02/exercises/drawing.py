@@ -4,7 +4,6 @@ sides = int(input("number of sides?"))
 length = int(input("length?"))
 t = turtle.Turtle()
 turtle.color("pink")
-turtle.get_shapepoly()
 angles = 360/sides
 def make_shape(x):
     d = 0
