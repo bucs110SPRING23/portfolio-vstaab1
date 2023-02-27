@@ -1,51 +1,16 @@
-import math
-import pygame
-
-pygame.init()
-window = pygame.display.set_mode((800,600))
-points = []
-num_sides = [3,4,6,20,100,360]
-side_length = 200
-black = (0,0,0)
-white = (255,255,255)
-red = (255, 0, 0)
-game = True
-
-def run():
-    pygame.display.flip()
-    x = 0
-    y = 0   
-    z = 0
-    xpos = 400
-    ypos = 300
-    global points
-    global num_sides
-    while z < num_sides[0]:
-        angle = 360/num_sides[0]
-        radians = math.radians(angle * z)
-        x = xpos + side_length * math.cos(radians)
-        y = ypos + side_length * math.sin(radians)
-        points.append((x,y))
-        z += 1
-    if z == num_sides[0]:
-        pygame.display.flip()
-        window.fill(white)
-        pygame.draw.polygon(window,red,(points),1)
-        pygame.time.wait(1000)
-        num_sides.remove(num_sides[0])
-        points.clear()
-        pygame.display.flip()
-        z = 0
-        if 360 in num_sides:
-            run()
-        else:
-            pygame.quit()
-            quit()
-while game == True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            game = False
-            pygame.quit()
-    run()
-
-
+Shop_Descriptions = {
+    "Pretty Lights":("Equipping these lights will earn you 15% more KangaCash","while in use. (Only one decoration may be in use at a time.)","",""),
+    "Overcharged Space Canons":("Firing these space cannons will shoot you ahead two spaces.","","",""),
+    "Reinforced Doors":("These doors will prevent you from going up to one space","backwards on your turn.","",""),
+    "Shiny Petrol":("The shininess will take you twice as many spaces on your turn.","","",""),
+    "A Cool Hat":("Your coolness will earn you 10% more KangaCash while equipped.","(Only one piece of headwear may be equipped at a time.)","",""),
+    "A Pretty Bow":("Your prettiness will give you a 15% chance to move an extra","space while equipped. (Only one piece of headwear may be equipped at a time.)","",""),
+    "Sonic Speed WiFi":("Your fast WiFi will take you an extra space further on","your turn.","",""),
+    "New Windshield Wipers":("Your clear vision will allow you to reverse any","backwards movement you would have encountered on your turn.","",""),
+    "A Platypus Poster?":("This awesome poster will give you a 10% chance to move","an extra space while in use. (Only one decoration may be in use at a time.)","",""),
+    "Powered Steering Wheel":("This steering wheel will allow you to move up to","four spaces in any direction of your choice for your turn.","",""),
+    "Pet Echidna":("This golden echidna will bring you both joy and 5 KangaCash","per turn.","","")
+}
+s = Shop_Descriptions["Pretty Lights"]
+p, q, r, t = s
+print(t)
