@@ -1,4 +1,5 @@
 import pygame
+#This wasn't supposed to be uploaded with my midterm--I'm not sure why it uploaded this :( I'm not done yet
 objs_in_seq = {}
 def np1(n):
     global objs_in_seq
